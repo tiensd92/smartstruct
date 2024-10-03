@@ -13,7 +13,7 @@ import 'assignment_builder.dart';
 /// Generates the implemented mapper method by the given abstract [MethodElement].
 Method buildMapperImplementation(Map<String, dynamic> config,
     MethodElement method, ClassElement abstractMapper) {
-  if (method.returnType.element2 == null) {
+  if (method.returnType.element == null) {
     throw InvalidGenerationSourceError(
         '${method.returnType} is not a valid return type',
         element: method,
@@ -202,7 +202,7 @@ List<HashMap<String, SourceAssignment>> _targetToSource(
         for (var matchedTarget in matchedSourceClazzInSourceMapping.keys) {
           final sourceValueList =
               matchedSourceClazzInSourceMapping[matchedTarget]!;
-          final fieldClazz = f.type.element2 as ClassElement;
+          final fieldClazz = f.type.element as ClassElement;
           
           final refChain = RefChain.byPropNames(sourceEntry.value, sourceValueList.sublist(1));
           targetToSource[matchedTarget] = SourceAssignment.fromRefChain(refChain);
@@ -302,7 +302,7 @@ FieldElement? _findMatchingField(
     final foundField = potentielFinds.first;
     // foundField is not string
     if (_shouldSearchMoreFields(foundField)) {
-      final searchClazz = foundField.type.element2 as ClassElement;
+      final searchClazz = foundField.type.element as ClassElement;
       return _findMatchingField(
           sources.skip(1).toList(), _findFields(searchClazz));
     } else {
