@@ -27,8 +27,8 @@ Expression generateSourceFieldAssignment(SourceAssignment sourceAssignment,
         .map((sourceParam) => refer(sourceParam.displayName));
     Expression expr = refer(sourceFunction.name);
     if (sourceFunction.isStatic &&
-        sourceFunction.enclosingElement3.name != null) {
-      expr = refer(sourceFunction.enclosingElement3.name!)
+        sourceFunction.enclosingElement.name != null) {
+      expr = refer(sourceFunction.enclosingElement.name!)
           .property(sourceFunction.name);
     }
     sourceFieldAssignment = expr.call(
