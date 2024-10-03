@@ -364,10 +364,9 @@ packages:
   smartstruct:
     dependency: "direct main"
     description:
-      name: smartstruct
-      sha256: ba2ef22ecb2eaafd57fb8b33b0e8fd4ddb9ee6e48eef34b7ac03be7cdead0279
-      url: "https://pub.dev"
-    source: hosted
+      path: "../smartstruct"
+      relative: true
+    source: path
     version: "1.4.0"
   source_gen:
     dependency: "direct main"
